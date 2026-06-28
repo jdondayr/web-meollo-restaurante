@@ -1,0 +1,121 @@
+body {
+    font-family: "Playfair Display", serif;
+}
+
+/* Navbar elements */
+.navbar {
+    background-color: black;
+    height: 5rem;
+    box-shadow: 0px 4px 10px black;
+    position: sticky;
+    top: 0
+}
+
+.offcanvas-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu {
+    text-decoration: underline;
+    transition: all 0.5s;
+}
+
+.menu:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer elements */
+.footer {
+    background-color: black;
+    height: 5rem;
+    position: sticky;
+    bottom: 0;
+}
+
+/* Home */
+.text-light {
+    text-shadow: 0px 0px 1.5px white;
+}
+
+.home {
+    background-color: #212529;
+}
+
+.btn-close {
+    transition: rotate 0.5s;
+}
+
+.btn-close:hover {
+    rotate: 90deg;
+    color: gray
+}
+
+.social {
+    transition: all 0.5s;
+}
+
+.social:hover {transform: translateY(-5px);}
+
+a, a:active, a:visited {
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 1.5px white;
+    transition: all 0.5s;
+}
+
+a:hover {
+    color: rgb(180, 180, 180);
+}
+
+.btn-close-white:hover {
+    color: gray
+}
+
+.jbtn {
+    background-color: aliceblue;
+    transition: all 0.5s;
+    box-shadow: 2px 2px 6px black;
+}
+
+.jbtn:hover {
+    background-color: black;
+    color: white;
+    transform: translateY(-10px);
+}
+
+/* Nuestra carta */
+.nuestra-carta img {
+    width: 50%;
+}
+
+iframe {
+    width: 850px;
+    height: 500px;
+    box-shadow: 0px 0px 10px 7px black;
+}
+
+video {
+    height: 640px;
+    width: 470px;
+    object-fit: cover;
+    box-shadow: 0px 0px 20px 10px black;
+}
+
+@media (max-width: 768px) {
+    video {
+        height: 160px;
+        object-fit: cover;
+        box-shadow: 0px 0px 20px 10px black;
+    }
+
+    iframe {
+        width: 430px;
+        height: 530px;
+    }
+
+    .offcanvas-body {
+        flex-direction: column;
+    }
+}   
