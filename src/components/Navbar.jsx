@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container-fluid">
-                    <Link to={"/"}><img src="src/images/logo_meollo_transparente.png" height="60" alt="meollo logo" className="ms-3"/></Link>
+                    <Link to={"/"}><img src="src/media/images/logos/logo_meollo_transparente.png" height="60" alt="meollo logo" className="ms-3"/></Link>
                     <Offcanvas descripcionBoton={<i className="fa-solid fa-bars"></i>} />
             </div>
         </nav>
