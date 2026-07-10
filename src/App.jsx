@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Ubicacion from "./pages/Ubicacion";
 import NuestraCarta from "./pages/NuestraCarta";
+import Contacto from "./pages/Contacto";
+import TrabajaConNosotros from "./pages/TrabajaConNosotros";
 
 const App = () => {
 
@@ -26,6 +28,8 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/ubicacion" element={<Ubicacion />} />
                         <Route path="/nuestracarta" element={<NuestraCarta />} />
+                        <Route path="/contacto" element={<Contacto />} />
+                        <Route path="/work-with-us" element={<TrabajaConNosotros />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

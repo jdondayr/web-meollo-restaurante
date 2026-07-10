@@ -1,19 +1,23 @@
 import { Link } from "react-router";
+import { GlobalContext } from "../contexts/GlobalContext";
+import { useContext } from "react";
 
 const Offcanvas = ({descripcionBoton}) => {
+
+    const {store} = useContext(GlobalContext)
+
     return (
         <>
-            <button className="btn jbtn rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">{descripcionBoton}</button>
+            <button style={{backgroundColor: store.lightMode ? "black" : ""}} className="btn jbtn rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">{descripcionBoton}</button>
 
-            <div className="offcanvas offcanvas-top myoffcanvas-top bg-dark" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div className="offcanvas offcanvas-top myoffcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div className="offcanvas-header">
                     <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body d-flex align-items-center justify-content-evenly">
 
                     <div className="menu">
-                        <img src="src/media/images/logos/logo_meollo_transparente.png" height="50" width="110" alt="logo meollo" />
-                        <Link className="fs-4 link-menu" to={"/"}>Home</Link>
+                        <Link to={"/"}><img src="src/media/images/logos/logo_meollo_transparente.png" height="50" width="110" alt="logo meollo" /></Link>
                     </div>
                     <div className="mas-info menu">
                         <div className="icons">
@@ -35,7 +39,10 @@ const Offcanvas = ({descripcionBoton}) => {
                             <i className="fa-solid fa-phone text-light fs-4"></i>
                             <i className="fa-solid fa-envelope text-light fs-4"></i>
                         </div>
-                        <Link className="fs-4 link-menu" to={""}>Contáctanos</Link>
+                        <Link className="fs-4 link-menu" to={"/contacto"}>Contacto y reservas</Link>
+                    </div>
+                    <div className="trabaja-con-nosotros menu">
+                        <Link className="fs-4 link-menu" to={"/work-with-us"}>Trabaja con nosotros</Link>
                     </div>
 
                 </div>
