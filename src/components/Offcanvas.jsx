@@ -41,7 +41,7 @@ const Offcanvas = ({ descripcionBoton }) => {
                         <i className="fa-solid fa-location-dot text-light fs-4"></i>
                         <Link className="fs-4 link-menu" to={"/ubicacion"}>¿Dónde estamos?</Link>
                     </div>
-                    <div className="contacto menu">
+                    <div className="menu">
                         <div className="icons d-flex gap-2">
                             <i className="fa-solid fa-phone text-light fs-4"></i>
                             <i className="fa-solid fa-envelope text-light fs-4"></i>
