@@ -169,6 +169,10 @@ video {
     .offcanvas.offcanvas-top.myoffcanvas-top {
     --bs-offcanvas-height: 70vh;
   }
+
+  .work-with-us-form {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }   
 
 .lightModeBtn {
