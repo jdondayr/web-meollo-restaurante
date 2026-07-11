@@ -17,7 +17,7 @@ const Offcanvas = ({descripcionBoton}) => {
                 <div className="offcanvas-body d-flex align-items-center justify-content-evenly">
 
                     <div className="menu">
-                        <Link to={"/"}><img src="src/media/images/logos/logo_meollo_transparente.png" height="50" width="110" alt="logo meollo" /></Link>
+                        <Link to={"/"}><img src="/media/images/logos/logo_meollo_transparente.png" height="50" width="110" alt="logo meollo" /></Link>
                     </div>
                     <div className="mas-info menu">
                         <div className="icons">
