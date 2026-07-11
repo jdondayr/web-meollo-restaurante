@@ -1,10 +1,6 @@
 import Offcanvas from "./Offcanvas";
-import { useContext } from "react";
-import { GlobalContext } from "../contexts/GlobalContext";
 
 const Jumbotron = () => {
-
-    const {store} = useContext(GlobalContext);
 
     return (
         <>
@@ -16,9 +12,6 @@ const Jumbotron = () => {
                     Trato cercano, producto fresco local. <br />
                     Volcamos nuestra pasión en cada uno de nuestros platos.
                 </p>
-                <div className="d-inline-flex gap-2 mb-5">
-                    <Offcanvas descripcionBoton="Descúbrenos" />
-                </div>
             </div>
         </>
     )

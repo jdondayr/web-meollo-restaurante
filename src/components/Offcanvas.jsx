@@ -1,14 +1,21 @@
 import { Link } from "react-router";
-import { GlobalContext } from "../contexts/GlobalContext";
+import { LightMode } from "../contexts/LightMode";
 import { useContext } from "react";
 
-const Offcanvas = ({descripcionBoton}) => {
+const Offcanvas = ({ descripcionBoton }) => {
 
-    const {store} = useContext(GlobalContext)
+    const { lightMode } = useContext(LightMode)
+    function closeOffcanvas() {
+        const offcanvasElement = document.getElementById("menuOffcanvas");
+        if (offcanvasElement) {
+            const offcanvas = Offcanvas.getOrCreateInstance(offcanvasElement);
+            offcanvas.hide();
+        }
+    }
 
     return (
         <>
-            <button style={{backgroundColor: store.lightMode ? "black" : ""}} className="btn jbtn rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">{descripcionBoton}</button>
+            <button style={{ backgroundColor: lightMode ? "black" : "" }} className="btn jbtn rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">{descripcionBoton}</button>
 
             <div className="offcanvas offcanvas-top myoffcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div className="offcanvas-header">
@@ -26,11 +33,11 @@ const Offcanvas = ({descripcionBoton}) => {
                         </div>
                         <Link className="fs-4 link-menu" to={""}>Más sobre nosotros</Link>
                     </div>
-                    <div className="carta menu">
+                    <div className="menu">
                         <i className="fa-solid fa-utensils text-light fs-4"></i>
-                        <Link className="fs-4 link-menu" to={"/nuestracarta"}>Nuestra carta</Link>
+                        <Link className="fs-4 link-menu" to={"/nuestracarta"} onClick={closeOffcanvas}>Nuestra carta</Link>
                     </div>
-                    <div className="location menu">
+                    <div className="location menu" onClick={closeOffcanvas}>
                         <i className="fa-solid fa-location-dot text-light fs-4"></i>
                         <Link className="fs-4 link-menu" to={"/ubicacion"}>¿Dónde estamos?</Link>
                     </div>

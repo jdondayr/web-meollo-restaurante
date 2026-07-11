@@ -4,13 +4,23 @@ body {
     font-family: "Playfair Display", serif;
 }
 
+h6 {
+    color: whitesmoke
+}
+
+h1 {
+    color: whitesmoke;
+    text-shadow: 0px 0px 2px whitesmoke;
+}
+
 /* Navbar elements */
 .navbar {
     background-color: black;
     height: 5rem;
     box-shadow: 0px 4px 10px black;
     position: sticky;
-    top: 0
+    top: 0;
+    z-index: 1;
 }
 
 .offcanvas-body {
@@ -49,7 +59,12 @@ body {
 }
 
 .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     background-color: #212529;
+    min-height: 100vh;
 }
 
 .btn-close {
@@ -124,7 +139,7 @@ iframe {
 
 video {
     height: 640px;
-    width: 470px;
+    width: 335px;
     object-fit: cover;
     box-shadow: 0px 0px 20px 10px black;
 }
@@ -209,4 +224,29 @@ input:focus {
 textarea {
     border-radius: 20px;
     padding: 10px;
+}
+
+.reviews {
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 0;
+}
+
+.carta {
+    background-color: #212529;
+    min-height: 100vh;
+}
+
+.plato {
+    border-bottom: 0.25px solid whitesmoke;
+    border-top: 0.25px solid whitesmoke;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 50%;
+    text-align: center;
+}
+
+.plato:hover {
+    border-bottom: 3px solid whitesmoke;
+    border-top: 3px solid whitesmoke;
 }

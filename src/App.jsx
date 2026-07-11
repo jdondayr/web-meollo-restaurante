@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import { GlobalContext } from "./contexts/GlobalContext";
-import { useReducer } from "react";
-import { initialStore, storeReducer } from "./store";
+import { LightMode } from "./contexts/LightMode";
 
 // Components imports
 import Navbar from "./components/Navbar";
@@ -13,15 +11,15 @@ import Ubicacion from "./pages/Ubicacion";
 import NuestraCarta from "./pages/NuestraCarta";
 import Contacto from "./pages/Contacto";
 import TrabajaConNosotros from "./pages/TrabajaConNosotros";
+import { useState } from "react";
 
 const App = () => {
 
-    // Store creation
-    const [store, dispatch] = useReducer(storeReducer, initialStore);
+    const [lightMode, setLightMode] = useState(false)
 
     return (
         <>
-            <GlobalContext.Provider value={{store, dispatch}}>
+            <LightMode.Provider value={{ lightMode, setLightMode }}>
                 <BrowserRouter>
                     <Navbar />
                     <Routes>
@@ -33,7 +31,7 @@ const App = () => {
                     </Routes>
                     <Footer />
                 </BrowserRouter>
-            </GlobalContext.Provider>
+            </LightMode.Provider>
         </>
     )
 }

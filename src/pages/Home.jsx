@@ -1,5 +1,6 @@
 // Components imports
 import Jumbotron from "../components/Jumbotron";
+import Tripadvisor from "../components/Tripadvisor"
 
 const Home = () => {
     return (
@@ -11,6 +12,9 @@ const Home = () => {
                 <video src="/media/videos/video2.mov" autoPlay loop playsInline></video>
                 <video src="/media/videos/video3.mov" autoPlay loop playsInline></video>
                 <video src="/media/videos/video4.mov" autoPlay loop playsInline></video>
+            </div>
+            <div className="reviews">
+                <Tripadvisor />
             </div>
         </div>
         </>
