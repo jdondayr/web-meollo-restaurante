@@ -5,17 +5,14 @@ import { useContext } from "react";
 const Offcanvas = ({ descripcionBoton }) => {
 
     const { lightMode } = useContext(LightMode)
-    function closeOffcanvas() {
-        const offcanvasElement = document.getElementById("menuOffcanvas");
-        if (offcanvasElement) {
-            const offcanvas = Offcanvas.getOrCreateInstance(offcanvasElement);
-            offcanvas.hide();
-        }
+
+    const closeMenu = () => {
+        window.bootstrap.Offcanvas.getOrCreateInstance(document.getElementById("offcanvasTop")).hide()
     }
 
     return (
         <>
-            <button style={{ backgroundColor: lightMode ? "black" : "" }} className="btn jbtn rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">{descripcionBoton}</button>
+            <button className="desplegable" style={lightMode ? { backgroundColor: "white" } : {}} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">{descripcionBoton}</button>
 
             <div className="offcanvas offcanvas-top myoffcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div className="offcanvas-header">
@@ -24,32 +21,32 @@ const Offcanvas = ({ descripcionBoton }) => {
                 <div className="offcanvas-body d-flex align-items-center justify-content-evenly">
 
                     <div className="menu">
-                        <Link to={"/"}><img src="/media/images/logos/logo_meollo_transparente.png" height="50" width="110" alt="logo meollo" /></Link>
+                        <Link onClick={closeMenu} to={"/"}><img src="/media/images/logos/logo_meollo_transparente.png" height="50" width="110" alt="logo meollo" /></Link>
                     </div>
                     <div className="mas-info menu">
                         <div className="icons">
                             <i className="fa-brands fa-shoelace text-light fs-4"></i>
                             <i className="fa-solid fa-book-open text-light fs-4"></i>
                         </div>
-                        <Link className="fs-4 link-menu" to={""}>Más sobre nosotros</Link>
+                        <Link onClick={closeMenu} className="fs-4 link-menu" to={""}>Más sobre nosotros</Link>
                     </div>
                     <div className="menu">
                         <i className="fa-solid fa-utensils text-light fs-4"></i>
-                        <Link className="fs-4 link-menu" to={"/nuestracarta"} onClick={closeOffcanvas}>Nuestra carta</Link>
+                        <Link onClick={closeMenu} className="fs-4 link-menu" to={"/nuestracarta"}>Nuestra carta</Link>
                     </div>
-                    <div className="location menu" onClick={closeOffcanvas}>
+                    <div className="location menu">
                         <i className="fa-solid fa-location-dot text-light fs-4"></i>
-                        <Link className="fs-4 link-menu" to={"/ubicacion"}>¿Dónde estamos?</Link>
+                        <Link onClick={closeMenu} className="fs-4 link-menu" to={"/ubicacion"}>¿Dónde estamos?</Link>
                     </div>
                     <div className="menu">
                         <div className="icons d-flex gap-2">
                             <i className="fa-solid fa-phone text-light fs-4"></i>
                             <i className="fa-solid fa-envelope text-light fs-4"></i>
                         </div>
-                        <Link className="fs-4 link-menu" to={"/contacto"}>Contacto y reservas</Link>
+                        <Link onClick={closeMenu} className="fs-4 link-menu" to={"/contacto"}>Contacto y reservas</Link>
                     </div>
                     <div className="trabaja-con-nosotros menu">
-                        <Link className="fs-4 link-menu" to={"/work-with-us"}>Trabaja con nosotros</Link>
+                        <Link onClick={closeMenu} className="fs-4 link-menu" to={"/work-with-us"}>Trabaja con nosotros</Link>
                     </div>
 
                 </div>

@@ -24,12 +24,14 @@ const NuestraCarta = () => {
     ]
 
     return (
-        <div className="carta d-flex flex-column align-items-center gap-3 pt-5 pb-5">
-            <h1>Meollo 2026</h1>
-            {platos.map((plato, index) => {
-                return <h5 key={index} className="plato">{plato}</h5>
-            })}
-            <h5 className="plato">PARA CUALQUIER DUDA SOBRE ALÉRGENOS SOLICITE INFORMACIÓN AL PERSONAL</h5>
+        <div className="nuestra-carta">
+            <div className="carta pizarra d-flex flex-column align-items-center gap-4 pt-5 pb-5">
+                <h1>Meollo 2026</h1>
+                {platos.map((plato, index) => {
+                    return <p key={index} className="plato">{plato}</p>
+                })}
+                <h5 className="plato">PARA CUALQUIER DUDA SOBRE ALÉRGENOS SOLICITE INFORMACIÓN AL PERSONAL</h5>
+            </div>
         </div>
     )
 }

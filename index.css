@@ -23,6 +23,14 @@ h1 {
     z-index: 1;
 }
 
+.desplegable {
+    background-color: black;
+    border: none;
+    font-size: 1.3rem;
+}
+
+
+
 .offcanvas-body {
     display: flex;
     align-items: center;
@@ -49,7 +57,6 @@ h1 {
 .footer {
     background-color: black;
     height: 5rem;
-    position: sticky;
     bottom: 0;
 }
 
@@ -114,16 +121,11 @@ a:hover {
 }
 
 h5 {
-    color: whitesmoke
+    color: whitesmoke;
 }
 
 .footer i {
     color: whitesmoke
-}
-
-/* Nuestra carta */
-.nuestra-carta img {
-    width: 50%;
 }
 
 /* Ubicación */
@@ -149,7 +151,7 @@ video {
     text-shadow: 0px 0px 1px whitesmoke;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
     video {
         height: 160px;
         object-fit: cover;
@@ -170,9 +172,6 @@ video {
     --bs-offcanvas-height: 70vh;
   }
 
-  .work-with-us-form {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }   
 
 .lightModeBtn {
@@ -192,42 +191,249 @@ video {
     gap: 1rem;
 }
 
-.work-with-us-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.application-form {
+    width: min(100%, 44rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 0 1.25rem 3rem;
+}
+
+.application-fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
-.form-div {
+.application-control-group {
+    width: 100%;
+}
+
+.application-field {
+    min-height: 4rem;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(245, 245, 245, 0.72);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.18);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+.application-field:focus-within {
+    border-color: whitesmoke;
+    box-shadow: 0 0 0 2px rgba(245, 245, 245, 0.16), 0 7px 18px rgba(0, 0, 0, 0.25);
+}
+
+.application-field-icon {
+    width: 4.25rem;
+    flex: 0 0 4.25rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-}
-
-.form-textarea {
-    grid-column: span 2;
-}
-
-input {
+    justify-content: center;
+    margin: 0.75rem 0;
+    border-right: 1px solid rgba(245, 245, 245, 0.65);
     color: whitesmoke;
-    border-radius: 20px;
-    padding: 10px;
-    border: 1px solid black;
-    background-color: #000000;
+    font-size: 1.3rem;
+}
+
+.application-field input,
+.application-field select,
+.application-field textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 0.9rem 1.15rem;
+    border: 0;
+    border-radius: 0;
     outline: none;
+    background-color: transparent;
+    color: whitesmoke;
+    font: inherit;
 }
 
-input:hover {
-    background-color: #1e1e1e;
+.application-field input::placeholder,
+.application-field textarea::placeholder {
+    color: rgba(245, 245, 245, 0.52);
+    opacity: 1;
 }
 
-input:focus {
+.application-field select {
+    appearance: none;
+    padding-right: 3rem;
+    cursor: pointer;
+}
+
+.application-field select option {
+    color: whitesmoke;
+    background-color: #212529;
+}
+
+.application-select-arrow {
+    position: absolute;
+    right: 1.15rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: whitesmoke;
+    pointer-events: none;
+}
+
+.application-field-textarea {
+    min-height: 13rem;
+}
+
+.application-field-textarea .application-field-icon {
+    align-items: flex-start;
+    padding-top: 0.35rem;
+}
+
+.application-field textarea {
+    min-height: 13rem;
+    resize: vertical;
+}
+
+.application-error {
+    display: block;
+    margin: 0.4rem 0 0 0.25rem;
+    color: #ff9d9d;
+    font-size: 0.85rem;
+}
+
+.application-submit {
+    min-width: 10.5rem;
+    padding: 0.8rem 2rem;
     border: 1px solid whitesmoke;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    color: #152326;
+    font: inherit;
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
-textarea {
-    border-radius: 20px;
-    padding: 10px;
+.application-submit:hover:not(:disabled) {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+    transform: translateY(-2px);
+}
+
+.application-submit:focus-visible {
+    outline: 2px solid whitesmoke;
+    outline-offset: 3px;
+}
+
+.application-submit:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.application-success-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1055;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(3px);
+}
+
+.application-success-dialog {
+    width: min(100%, 30rem);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.75rem 2rem 2rem;
+    border: 1px solid rgba(245, 245, 245, 0.72);
+    border-radius: 12px;
+    background-color: #212529;
+    color: whitesmoke;
+    text-align: center;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55);
+}
+
+.application-success-dialog h2,
+.application-success-dialog p {
+    margin: 0;
+}
+
+.application-success-dialog p {
+    line-height: 1.6;
+    color: rgba(245, 245, 245, 0.75);
+}
+
+.application-success-icon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid whitesmoke;
+    border-radius: 50%;
+    font-size: 1.6rem;
+}
+
+.application-success-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 0;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.application-success-confirm {
+    min-width: 9rem;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    color: #152326;
+    font: inherit;
+    cursor: pointer;
+}
+
+.application-success-close:hover,
+.application-success-close:focus-visible {
+    transform: rotate(90deg);
+}
+
+.application-success-confirm:hover {
+    background-color: #d9d9d9;
+    border-color: #d9d9d9;
+}
+
+.application-success-close:focus-visible,
+.application-success-confirm:focus-visible {
+    outline: 2px solid whitesmoke;
+    outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+    .application-form {
+        padding-inline: 1rem;
+    }
+
+    .application-field-icon {
+        width: 3.5rem;
+        flex-basis: 3.5rem;
+    }
+
+    .application-field input,
+    .application-field select,
+    .application-field textarea {
+        padding-inline: 0.9rem;
+    }
 }
 
 .reviews {
@@ -236,35 +442,128 @@ textarea {
     z-index: 0;
 }
 
-.carta {
+.nuestra-carta {
     background-color: #212529;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.pizarra {
+  position: relative;
+  padding: 2rem;
+  font-family: "Rock Salt", cursive;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.025), transparent 18%),
+    radial-gradient(circle at 75% 65%, rgba(255,255,255,.02), transparent 20%),
+    #20362c;
+
+    border-radius: 20px;
+
+  background-clip: padding-box;
+  box-shadow:
+    inset 0 0 22px rgba(0, 0, 0, .55),
+    0 12px 24px rgba(0, 0, 0, .35);
+}
+
+.pizarra h5 {font-family: "Playfair Display", serif;}
+
+.pizarra p {
+    margin: 0;
+    color: whitesmoke;
 }
 
 .plato {
-    border-bottom: 0.25px solid whitesmoke;
-    border-top: 0.25px solid whitesmoke;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     width: 50%;
     text-align: center;
 }
 
-.plato:hover {
-    border-bottom: 3px solid whitesmoke;
-    border-top: 3px solid whitesmoke;
-}
-
 .contacto {
-    padding-top: 8rem;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
     background-color: #212529;
+    gap: 0.6rem;
 }
 
-.contacto h2, .contacto h3 {
-    color: whitesmoke;
-    font-weight: bold;
+.contacto-kicker {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8fae9c;
+}
+
+.contacto-lead {
+    margin: 0 0 1.5rem;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.contacto-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem;
+    width: 100%;
+    max-width: 46rem;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+}
+
+.contacto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 1 1 260px;
+    max-width: 320px;
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.025), transparent 18%),
+        radial-gradient(circle at 75% 65%, rgba(255,255,255,.02), transparent 20%),
+        #20362c;
+    background-clip: padding-box;
+    box-shadow:
+        inset 0 0 22px rgba(0, 0, 0, .55),
+        0 12px 24px rgba(0, 0, 0, .35);
+}
+
+.contacto-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        inset 0 0 22px rgba(0, 0, 0, .55),
+        0 16px 28px rgba(0, 0, 0, .45);
+}
+
+.contacto-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(245, 245, 245, 0.08);
+    font-size: 1.2rem;
+}
+
+.contacto-card h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    word-break: break-word;
+}
+
+.contacto-card p {
+    margin: 0;
+    opacity: 0.65;
+    font-size: 0.9rem;
 }

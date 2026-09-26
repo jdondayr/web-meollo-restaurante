@@ -12,7 +12,7 @@ const Navbar = () => {
             <div className="container-fluid">
                 <Link to={"/"}><img src={lightMode ? "/media/images/logos/logo_meollo_negro.png" : "/media/images/logos/logo_meollo_transparente.png"} height="60" alt="meollo logo" className="ms-3" /></Link>
                 <div className="d-flex align-items-center">
-                    <Offcanvas descripcionBoton={<i style={{color: lightMode ? "white" : ""}} className="fa-solid fa-bars"></i>} />
+                    <Offcanvas descripcionBoton={<i style={{color: lightMode ? "black" : "white"}} className="fa-solid fa-bars"></i>} />
                     <button onClick={()=>setLightMode(!lightMode)} className="lightModeBtn ms-3" style={lightMode ? {
                         color: "black",
                         backgroundColor: "white"
